@@ -2,11 +2,14 @@ import { createBrowserRouter } from 'react-router-dom'
 import App from './App'
 import RequireAuth from './components/require-auth'
 import RequireGuest from './components/require-guest'
-import Account from './pages/account/account'
+import MyAccount from './pages/my-account/my-account'
 import Dashboard from './pages/dashboard/dashboard'
 import Login from './pages/login'
-import Managers from './pages/managers/managers'
+import Accounts from './pages/accounts/accounts'
 import UpdatePassword from './pages/update-password'
+import AddOrEditAccount from './pages/accounts/add-or-edit-account'
+import Business from './pages/business/business'
+import AddOrEditBusiness from './pages/business/add-or-edit-business'
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +21,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
+        path: '/my-account',
         element: (
           <RequireAuth>
             <Dashboard />
@@ -26,15 +29,15 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/account',
+        path: '/my-account',
         element: (
           <RequireAuth>
-            <Account />
+            <MyAccount />
           </RequireAuth>
         ),
       },
       {
-        path: '/account/update-password',
+        path: '/my-account/update-password',
         element: (
           <RequireAuth>
             <UpdatePassword />
@@ -42,10 +45,50 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/managers',
+        path: '/accounts',
         element: (
           <RequireAuth>
-            <Managers />
+            <Accounts />
+          </RequireAuth>
+        ),
+      },
+      {
+        path: '/accounts/:id/edit',
+        element: (
+          <RequireAuth>
+            <AddOrEditAccount />
+          </RequireAuth>
+        ),
+      },
+      {
+        path: '/accounts/add',
+        element: (
+          <RequireAuth>
+            <AddOrEditAccount />
+          </RequireAuth>
+        ),
+      },
+      {
+        path: '/business',
+        element: (
+          <RequireAuth>
+            <Business />
+          </RequireAuth>
+        ),
+      },
+      {
+        path: '/business/:id/edit',
+        element: (
+          <RequireAuth>
+            <AddOrEditBusiness />
+          </RequireAuth>
+        ),
+      },
+      {
+        path: '/business/add',
+        element: (
+          <RequireAuth>
+            <AddOrEditBusiness />
           </RequireAuth>
         ),
       },

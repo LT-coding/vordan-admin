@@ -22,18 +22,15 @@ import * as z from 'zod'
 import Navigation from './navigation'
 
 const formSchema = z.object({
-  name: z
-    .string()
-    .min(1, {
-      message: 'Name is required',
-    })
-    .email(),
+  name: z.string().min(1, {
+    message: 'Name is required',
+  }),
   phone: z.string().min(1, {
     message: 'Phone is required',
   }),
 })
 
-export default function Account() {
+export default function MyAccount() {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -49,7 +46,7 @@ export default function Account() {
     setLoading(true)
     try {
       await axiosClient('sanctum/csrf-cookie')
-      const res = await axiosClient.post('api/account', values)
+      const res = await axiosClient.post('api/my-account', values)
       const resToken = res.data.data.token
       Cookies.set('token', resToken)
       navigate('/dashboard')
@@ -91,7 +88,7 @@ export default function Account() {
                   <div className='relative'>
                     <UserRound className='pointer-events-none absolute start-2 top-1/2 z-10 -translate-y-1/2 text-muted-foreground' />
                     <FormControl>
-                      <Input {...field} type='email' className='ps-9' />
+                      <Input {...field} type='text' className='ps-9' />
                     </FormControl>
                   </div>
                   <FormMessage className='font-bold' />

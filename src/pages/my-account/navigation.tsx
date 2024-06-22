@@ -6,7 +6,7 @@ export default function Navigation() {
   return (
     <div className='flex p-2'>
       <NavLink
-        to='/account'
+        to='/my-account'
         end={true}
         className={({ isActive }) =>
           `${buttonVariants({
@@ -20,7 +20,7 @@ export default function Navigation() {
         Account Details
       </NavLink>
       <NavLink
-        to='/account/update-password'
+        to='/my-account/update-password'
         className={({ isActive }) =>
           `${buttonVariants({
             className: cn(

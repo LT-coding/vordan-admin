@@ -42,7 +42,7 @@ export default function Sidebar() {
   return (
     <div className='sticky top-0 z-40 flex max-h-[calc(100dvh-0rem)] w-64 shrink-0 flex-col gap-2 bg-slate-800 p-4'>
       <NavLink
-        to='/account'
+        to='/my-account'
         className={({ isActive }) =>
           `!justify-start ${buttonVariants({
             className: cn(
@@ -56,7 +56,7 @@ export default function Sidebar() {
         My Account
       </NavLink>
       <NavLink
-        to='/managers'
+        to='/accounts'
         className={({ isActive }) =>
           `!justify-start ${buttonVariants({
             className: cn(
@@ -67,7 +67,21 @@ export default function Sidebar() {
         }
       >
         <UserRound />
-        Managers
+        Accounts
+      </NavLink>
+      <NavLink
+        to='/business'
+        className={({ isActive }) =>
+          `!justify-start ${buttonVariants({
+            className: cn(
+              'bg-transparent hover:bg-slate-700 gap-2',
+              isActive && 'bg-primary hover:bg-primary/80'
+            ),
+          })}`
+        }
+      >
+        <UserRound />
+        Business
       </NavLink>
       <Button
         variant='secondary'

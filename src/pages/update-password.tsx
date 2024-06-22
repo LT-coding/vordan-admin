@@ -19,7 +19,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import * as z from 'zod'
-import Navigation from './account/navigation'
+import Navigation from './my-account/navigation'
 
 const formSchema = z
   .object({
@@ -59,7 +59,7 @@ export default function UpdatePassword() {
       toast({
         title: 'Password changed successfully',
       })
-      navigate('/account')
+      navigate('/my-account')
     } catch (error) {
       if (error instanceof AxiosError) {
         if (error.response?.data?.error) {
