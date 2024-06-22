@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/my-account',
+        path: '/',
         element: (
           <RequireAuth>
             <Dashboard />
