@@ -1,3 +1,4 @@
+import logo from '@/assets/images/logo.png'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import {
@@ -20,7 +21,6 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import * as z from 'zod'
-import logo from '@/assets/images/logo.png'
 
 const formSchema = z.object({
   login: z
@@ -73,8 +73,6 @@ export default function Login() {
     }
     setLoading(false)
   }
-
-  // return <div></div>
 
   return (
     <div className='flex items-center justify-center bg-gray-100 min-h-dvh'>
